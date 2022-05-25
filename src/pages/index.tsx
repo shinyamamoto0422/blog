@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { useEffect } from "react";
-import { client } from "@/config/api";
+import { client } from "@/config/client";
 import type { NextPage } from "next";
 
 const Home: NextPage = (props) => {
