@@ -1,13 +1,9 @@
 module.exports = {
+  parser: "@typescript-eslint/parser",
   plugins: ["tailwindcss"],
-  extends: ["next/core-web-vitals", "plugin:tailwindcss/recommended"],
-  rules: {
-    "tailwindcss/classnames-order": "warn",
-    "tailwindcss/enforces-negative-arbitrary-values": "warn",
-    "tailwindcss/enforces-shorthand": "warn",
-    "tailwindcss/migration-from-tailwind-2": "warn",
-    "tailwindcss/no-arbitrary-value": "off",
-    "tailwindcss/no-custom-classname": "warn",
-    "tailwindcss/no-contradicting-classname": "error",
-  },
+  extends: [
+    "next/core-web-vitals",
+    "plugin:tailwindcss/recommended",
+    "plugin:@typescript-eslint/recommended",
+  ],
 };
