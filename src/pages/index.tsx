@@ -1,7 +1,6 @@
-import { MainLayout } from "@/components/layout";
 import { Home } from "@/components/page";
 import { client } from "@/libs/microCMS/client";
-import type { NextPage } from "next";
+import { NextPageWithLayout } from "@/types/next-type";
 
 export const getStaticProps = async () => {
   const data = await client.get({
@@ -14,12 +13,8 @@ export const getStaticProps = async () => {
   };
 };
 
-const HomePage: NextPage = ({ data }: any) => {
-  return (
-    <MainLayout>
-      <Home data={data} />
-    </MainLayout>
-  );
+const HomePage: NextPageWithLayout = ({ data }: any) => {
+  return <Home data={data} />;
 };
 
 export default HomePage;
