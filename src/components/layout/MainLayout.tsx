@@ -7,14 +7,9 @@ type Props = {
 };
 
 export const MainLayout: FC<Props> = ({ children }) => {
-  const items = [
-    { link: "/", label: "Home" },
-    { link: "/about", label: "About" },
-  ];
-
   return (
     <>
-      <Header links={items} />
+      <Header />
       {children}
       <Footer />
     </>

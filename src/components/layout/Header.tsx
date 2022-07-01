@@ -1,133 +1,89 @@
-import React, { useState } from "react";
 import {
-  createStyles,
   Header as MantineHeader,
-  Group,
-  ActionIcon,
   Container,
   Burger,
+  ActionIcon,
+  Group,
+  useMantineColorScheme,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
-import { BrandTwitter, BrandYoutube, BrandInstagram } from "tabler-icons-react";
+import {
+  BrandTwitter,
+  BrandGithub,
+  BrandInstagram,
+  Sun,
+  MoonStars,
+} from "tabler-icons-react";
+import { FC } from "react";
+import { LINK } from "@/constants/links";
 import { ProfileIcon } from "../ui/ProfileIcon";
+import { AppLink } from "../ui/AppLink";
 
-const useStyles = createStyles((theme) => ({
-  inner: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    height: 56,
-
-    [theme.fn.smallerThan("sm")]: {
-      justifyContent: "flex-start",
-    },
+const NavList = [
+  {
+    label: "Home",
+    link: LINK.HOME,
   },
-
-  links: {
-    width: 260,
-
-    [theme.fn.smallerThan("sm")]: {
-      display: "none",
-    },
+  {
+    label: "Profile",
+    link: LINK.PROFILE,
   },
+];
 
-  social: {
-    width: 260,
-
-    [theme.fn.smallerThan("sm")]: {
-      width: "auto",
-      marginLeft: "auto",
-    },
-  },
-
-  burger: {
-    marginRight: theme.spacing.md,
-
-    [theme.fn.largerThan("sm")]: {
-      display: "none",
-    },
-  },
-
-  link: {
-    display: "block",
-    lineHeight: 1,
-    padding: "8px 12px",
-    borderRadius: theme.radius.sm,
-    textDecoration: "none",
-    color:
-      theme.colorScheme === "dark"
-        ? theme.colors.dark[0]
-        : theme.colors.gray[7],
-    fontSize: theme.fontSizes.sm,
-    fontWeight: 500,
-
-    "&:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.colors.dark[6]
-          : theme.colors.gray[0],
-    },
-  },
-
-  linkActive: {
-    "&, &:hover": {
-      backgroundColor:
-        theme.colorScheme === "dark"
-          ? theme.fn.rgba(theme.colors[theme.primaryColor][9], 0.25)
-          : theme.colors[theme.primaryColor][0],
-      color:
-        theme.colors[theme.primaryColor][theme.colorScheme === "dark" ? 3 : 7],
-    },
-  },
-}));
-
-interface HeaderMiddleProps {
-  links: { link: string; label: string }[];
-}
-
-export const Header = ({ links }: HeaderMiddleProps) => {
+export const Header: FC = () => {
   const [opened, toggleOpened] = useBooleanToggle(false);
-  const [active, setActive] = useState(links[0].link);
-  const { classes, cx } = useStyles();
+  const { colorScheme, toggleColorScheme } = useMantineColorScheme();
+  const dark = colorScheme === "dark";
 
-  const items = links.map((link) => (
-    <a
-      key={link.label}
-      href={link.link}
-      className={cx(classes.link, {
-        [classes.linkActive]: active === link.link,
-      })}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(link.link);
-      }}
+  const items = NavList.map(({ link, label }) => (
+    <AppLink
+      key={label}
+      href={link}
+      className={`block py-2 px-3 font-medium leading-[1] dark:text-gray-700 decoration-[none]  ${
+        dark ? "hover:bg-blue-500" : "hover:bg-gray-100"
+      }`}
     >
-      {link.label}
-    </a>
+      {label}
+    </AppLink>
   ));
 
   return (
     <MantineHeader height={56} mb={120}>
-      <Container className={classes.inner}>
+      <Container className="flex justify-between items-center h-[56px]">
         <Burger
           opened={opened}
           onClick={() => toggleOpened()}
           size="sm"
-          className={classes.burger}
+          className="sm:hidden"
         />
-        <Group className={classes.links} spacing={5}>
+        <Group className="hidden w-[260px] sm:flex" spacing={5}>
           {items}
         </Group>
         <ProfileIcon />
-        <Group spacing={0} className={classes.social} position="right" noWrap>
+        <Group spacing={0} className="w-[260px]" position="right" noWrap>
           <ActionIcon size="lg">
-            <BrandTwitter size={18} />
+            <a href={LINK.TWITTER}>
+              <BrandTwitter size={18} />
+            </a>
           </ActionIcon>
           <ActionIcon size="lg">
-            <BrandYoutube size={18} />
+            <a href={LINK.GITHUB}>
+              <BrandGithub size={18} />
+            </a>
           </ActionIcon>
           <ActionIcon size="lg">
-            <BrandInstagram size={18} />
+            <a href={LINK.INSTAGRAM}>
+              <BrandInstagram size={18} />
+            </a>
+          </ActionIcon>
+        </Group>
+        <Group position="center" my="xl">
+          <ActionIcon
+            onClick={() => toggleColorScheme()}
+            size="lg"
+            className={`${dark ? "text-yellow-400" : "text-blue-400"}`}
+          >
+            {dark ? <Sun size={18} /> : <MoonStars size={18} />}
           </ActionIcon>
         </Group>
       </Container>
