@@ -11,6 +11,7 @@ const App: FC<AppPropsWithLayout> = ({ Component, pageProps }) => {
     <>
       <Head>
         <title>Code yy</title>
+        <link rel="icon" type="image/png" sizes="16x16" href="/god.png" />
       </Head>
       <Layout>
         <Component {...pageProps} />

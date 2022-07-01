@@ -1,6 +1,6 @@
-import { Home } from "@/components/page";
-import { client } from "@/libs/microCMS/client";
 import { NextPageWithLayout } from "@/types/next-type";
+import { client } from "@/libs/microCMS/client";
+import { Home } from "@/components/page";
 
 export const getStaticProps = async () => {
   const data = await client.get({
