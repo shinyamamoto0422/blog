@@ -1,6 +1,6 @@
 import { NextPageWithLayout } from "@/types/next-type";
 import { client } from "@/libs/microCMS/client";
-import { Home } from "@/components/page";
+import { Profile } from "@/components/page/profile";
 
 export const getStaticProps = async () => {
   const data = await client.get({
@@ -13,8 +13,8 @@ export const getStaticProps = async () => {
   };
 };
 
-const HomePage: NextPageWithLayout = ({ data }: any) => {
-  return <Home data={data} />;
+const ProfilePage: NextPageWithLayout = ({ data }: any) => {
+  return <Profile data={data} />;
 };
 
-export default HomePage;
+export default ProfilePage;
