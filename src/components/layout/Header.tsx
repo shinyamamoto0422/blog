@@ -61,21 +61,21 @@ export const Header: FC = () => {
         </Group>
         <ProfileIcon />
         <Group spacing={0} className="w-[260px]" position="right" noWrap>
-          <ActionIcon size="lg">
-            <a href={LINK.TWITTER}>
+          <a href={LINK.TWITTER} target="_blank" rel="noreferrer">
+            <ActionIcon size="lg">
               <BrandTwitter size={18} />
-            </a>
-          </ActionIcon>
-          <ActionIcon size="lg">
-            <a href={LINK.GITHUB}>
+            </ActionIcon>
+          </a>
+          <a href={LINK.GITHUB} target="_blank" rel="noreferrer">
+            <ActionIcon size="lg">
               <BrandGithub size={18} />
-            </a>
-          </ActionIcon>
-          <ActionIcon size="lg">
-            <a href={LINK.INSTAGRAM}>
+            </ActionIcon>
+          </a>
+          <a href={LINK.INSTAGRAM} target="_blank" rel="noreferrer">
+            <ActionIcon size="lg">
               <BrandInstagram size={18} />
-            </a>
-          </ActionIcon>
+            </ActionIcon>
+          </a>
         </Group>
         <Group position="center" my="xl">
           <ActionIcon
