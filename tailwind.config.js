@@ -5,6 +5,12 @@ module.exports = {
     fontFamily: {
       greycliff: ["Greycliff", "sans-serif"],
     },
+    extend: {
+      colors: {
+        "gray-light": "#E9ECEF",
+        "gray-dark": "#2C2E33",
+      },
+    },
   },
   plugins: [require("@tailwindcss/typography")],
 };

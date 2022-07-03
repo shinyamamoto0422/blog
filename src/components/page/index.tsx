@@ -10,7 +10,7 @@ export const Home: FC<Props> = ({ blogs }) => {
   const { contents } = blogs;
 
   return (
-    <div className="flex flex-wrap px-[12rem]">
+    <div className="flex flex-wrap px-[12rem] ml-12">
       {contents.map((blog) => {
         return (
           <div key={blog.id} className="mr-8 mb-3">

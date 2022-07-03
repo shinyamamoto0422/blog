@@ -7,17 +7,12 @@ import {
   useMantineColorScheme,
 } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
-import {
-  BrandTwitter,
-  BrandGithub,
-  BrandInstagram,
-  Sun,
-  MoonStars,
-} from "tabler-icons-react";
+import { Sun, MoonStars } from "tabler-icons-react";
 import { FC } from "react";
 import { LINK } from "@/constants/links";
 import { ProfileIcon } from "../ui/ProfileIcon";
 import { AppLink } from "../ui/AppLink";
+import { SnsIcon } from "../feature/SnsIcon";
 
 const NavList = [
   {
@@ -61,23 +56,9 @@ export const Header: FC = () => {
         </Group>
         <ProfileIcon />
         <Group spacing={0} className="w-[260px]" position="right" noWrap>
-          <a href={LINK.TWITTER} target="_blank" rel="noreferrer">
-            <ActionIcon size="lg">
-              <BrandTwitter size={18} />
-            </ActionIcon>
-          </a>
-          <a href={LINK.GITHUB} target="_blank" rel="noreferrer">
-            <ActionIcon size="lg">
-              <BrandGithub size={18} />
-            </ActionIcon>
-          </a>
-          <a href={LINK.INSTAGRAM} target="_blank" rel="noreferrer">
-            <ActionIcon size="lg">
-              <BrandInstagram size={18} />
-            </ActionIcon>
-          </a>
-        </Group>
-        <Group position="center" my="xl">
+          <div className="flex mr-3">
+            <SnsIcon />
+          </div>
           <ActionIcon
             onClick={() => toggleColorScheme()}
             size="lg"
