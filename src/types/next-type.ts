@@ -1,11 +1,14 @@
-import { NextPage } from "next";
-import { AppProps } from "next/app";
-import { FC, ReactElement } from "react";
+/* eslint-disable @typescript-eslint/ban-types */
+import type { NextPage } from "next";
+import type { AppProps } from "next/app";
+import type { ReactElement, ReactNode } from "react";
 
-export type NextPageWithLayout = NextPage & {
-  useLayout?: FC<{ children: ReactElement }>;
+export type GetLayout = (page: ReactElement) => ReactNode;
+
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout: GetLayout;
 };
 
-export type AppPropsWithLayout = AppProps & {
+export type AppPropsWithLayout<P = {}> = AppProps<P> & {
   Component: NextPageWithLayout;
 };

@@ -48,7 +48,7 @@ export const Header: FC = () => {
   ));
 
   return (
-    <MantineHeader height={56} mb={120}>
+    <MantineHeader height={56} mb={50}>
       <Container className="flex justify-between items-center h-[56px]">
         <Burger
           opened={opened}
