@@ -3,7 +3,7 @@ import { Loader } from "@mantine/core";
 
 export const AppLoading: FC = () => {
   return (
-    <div className="flex justify-center items-center w-full h-[-webkit-fill-available]">
+    <div className="flex justify-center items-center w-full h-[100vh]">
       <Loader variant="dots" />
     </div>
   );
