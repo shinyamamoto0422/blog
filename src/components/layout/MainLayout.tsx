@@ -4,16 +4,24 @@ import {
   MantineProvider,
 } from "@mantine/core";
 import Head from "next/head";
-import { useState } from "react";
+import { ReactElement, useEffect, useState } from "react";
 import { GetLayout } from "@/types/next-type";
+import { AppLoading } from "../ui/AppLoading";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 
-export const MainLayout: GetLayout = (page) => {
+export const MainLayout: GetLayout = (page: ReactElement) => {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
   const toggleColorScheme = (value?: ColorScheme) => {
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
   };
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, [loading]);
+
+  if (loading) return <AppLoading />;
 
   return (
     <>

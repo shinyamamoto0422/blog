@@ -1,48 +1,43 @@
-import React, { FC } from "react";
-import { Paper, Title, Button, Text } from "@mantine/core";
-import { Blogs } from "@/types/blog";
-
-type Props = {
-  blogs: Blogs;
-};
+import { FC, useState } from "react";
+import { Pagination } from "@mantine/core";
+import { useRouter } from "next/router";
+import { Props } from "@/pages/blogs/page/[id]";
+import { BlogCard } from "../feature/BlogCard";
 
 export const Home: FC<Props> = ({ blogs }) => {
-  const { contents } = blogs;
+  const router = useRouter();
+  const [page, setPage] = useState(1);
+  const { contents, totalCount, limit } = blogs;
+
+  // 投稿数 / 8 = ページ数(整数)
+  const totalPages = Math.ceil(totalCount / limit);
+
+  const handleChange = (pageId: number) => {
+    setPage(pageId);
+    router.push(`/blogs/page/${pageId}`);
+  };
 
   return (
-    <div className="flex flex-wrap px-[12rem] ml-12">
-      {contents.map((blog) => {
-        return (
-          <div key={blog.id} className="mr-8 mb-3">
-            <Paper
-              shadow="md"
-              p="xl"
-              radius="md"
-              sx={{ backgroundImage: `url(${blog.eyecatch.url})` }}
-              className="flex flex-col justify-between items-start w-[272px] h-[440px] bg-center bg-cover"
-            >
-              <div>
-                <Text className="font-greycliff" size="xs">
-                  {blog.category.name}
-                </Text>
-                <Title
-                  order={3}
-                  className="font-medium text-black uppercase	opacity-70"
-                >
-                  {blog.title}
-                </Title>
-              </div>
-              <Button
-                variant="white"
-                color="dark"
-                className="text-white bg-gray-500"
-              >
-                Read article
-              </Button>
-            </Paper>
-          </div>
-        );
-      })}
-    </div>
+    <>
+      <div className="flex flex-wrap px-[12rem] ml-12">
+        {contents.map((blog) => {
+          return (
+            <div key={blog.id} className="mr-8 mb-3">
+              <BlogCard blog={blog} />
+            </div>
+          );
+        })}
+      </div>
+      <div className="flex justify-center my-7">
+        <Pagination
+          total={totalPages}
+          page={Number(router.query.id) || page}
+          onChange={handleChange}
+          size="sm"
+          radius="md"
+          color="indigo"
+        />
+      </div>
+    </>
   );
 };
