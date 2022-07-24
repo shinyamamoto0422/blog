@@ -7,8 +7,8 @@ import { FC } from "react";
 
 export const Profile: FC = () => {
   return (
-    <div className="flex flex-wrap px-[12rem] ml-12">
-      <div className="p-10 mb-5 border">
+    <div className="flex flex-wrap px-[337px] mx-12">
+      <div className="p-10 border">
         <div className="flex flex-col">
           <h1 className="mr-2 mb-3">My name is Yuto Yoshino</h1>
           <div className="flex gap-3 mb-3">
@@ -221,7 +221,10 @@ export const Profile: FC = () => {
               />
             </a>
             <a href="http://www.github.com/code-yy">
-              <img src="https://github-readme-streak-stats.herokuapp.com/?user=code-yy&stroke=ffffff&background=0f172a&ring=3382ed&fire=3382ed&currStreakNum=ffffff&currStreakLabel=3382ed&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&hide_border=true" />
+              <img
+                src="https://github-readme-streak-stats.herokuapp.com/?user=code-yy&stroke=ffffff&background=0f172a&ring=3382ed&fire=3382ed&currStreakNum=ffffff&currStreakLabel=3382ed&sideNums=ffffff&sideLabels=ffffff&dates=ffffff&hide_border=true"
+                alt="code-yy's GitHub stats github-readme-streak-stats.herokuapp.com"
+              />
             </a>
           </div>
         </div>
@@ -229,6 +232,7 @@ export const Profile: FC = () => {
           <img
             src="https://activity-graph.herokuapp.com/graph?username=code-yy&bg_color=0f172a&color=ffffff&line=3382ed&point=ffffff&area_color=0f172a&area=true&hide_border=true&custom_title=GitHub%20Commits%20Graph"
             alt="GitHub Commits Graph"
+            width={828}
           />
         </a>
       </div>
