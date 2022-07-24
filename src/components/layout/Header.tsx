@@ -1,11 +1,4 @@
-import {
-  Header as MantineHeader,
-  Container,
-  Burger,
-  ActionIcon,
-  Group,
-  useMantineColorScheme,
-} from "@mantine/core";
+import { Header as MantineHeader, Container, Burger, ActionIcon, Group, useMantineColorScheme } from "@mantine/core";
 import { useBooleanToggle } from "@mantine/hooks";
 import { Sun, MoonStars } from "tabler-icons-react";
 import { FC } from "react";
@@ -20,8 +13,8 @@ const NavList = [
     link: LINK.HOME,
   },
   {
-    label: "Profile",
-    link: LINK.PROFILE,
+    label: "Blog",
+    link: LINK.BLOGS,
   },
 ];
 
@@ -45,12 +38,7 @@ export const Header: FC = () => {
   return (
     <MantineHeader height={56} mb={50}>
       <Container className="flex justify-between items-center h-[56px]">
-        <Burger
-          opened={opened}
-          onClick={() => toggleOpened()}
-          size="sm"
-          className="sm:hidden"
-        />
+        <Burger opened={opened} onClick={() => toggleOpened()} size="sm" className="sm:hidden" />
         <Group className="hidden w-[260px] sm:flex" spacing={5}>
           {items}
         </Group>
