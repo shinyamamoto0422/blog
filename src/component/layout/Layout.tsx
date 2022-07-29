@@ -1,16 +1,12 @@
-import {
-  ColorScheme,
-  ColorSchemeProvider,
-  MantineProvider,
-} from "@mantine/core";
+import { ColorScheme, ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import Head from "next/head";
 import { ReactElement, useEffect, useState } from "react";
-import { GetLayout } from "@/types/next-type";
+import { GetLayout } from "@/type/next-type";
 import { AppLoading } from "../ui/AppLoading";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 
-export const MainLayout: GetLayout = (page: ReactElement) => {
+export const Layout: GetLayout = (page: ReactElement) => {
   const [colorScheme, setColorScheme] = useState<ColorScheme>("light");
   const toggleColorScheme = (value?: ColorScheme) => {
     setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
@@ -29,15 +25,8 @@ export const MainLayout: GetLayout = (page: ReactElement) => {
         <title>Code yy</title>
         <link rel="icon" type="image/png" sizes="16x16" href="/god.png" />
       </Head>
-      <ColorSchemeProvider
-        colorScheme={colorScheme}
-        toggleColorScheme={toggleColorScheme}
-      >
-        <MantineProvider
-          theme={{ colorScheme }}
-          withGlobalStyles
-          withNormalizeCSS
-        >
+      <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
+        <MantineProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
           <Header />
           <main>{page}</main>
           <Footer />

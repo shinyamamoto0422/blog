@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { Props } from "@/pages/blogs/page/[id]";
 import { BlogCard } from "../feature/BlogCard";
 
-export const Home: FC<Props> = ({ blogs }) => {
+export const BlogList: FC<Props> = ({ blogs }) => {
   const router = useRouter();
   const [page, setPage] = useState(1);
   const { contents, totalCount, limit } = blogs;

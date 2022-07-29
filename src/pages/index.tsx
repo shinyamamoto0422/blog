@@ -1,11 +1,11 @@
-import { NextPageWithLayout } from "@/types/next-type";
-import { Profile } from "@/components/page/profile";
-import { MainLayout } from "@/components/layout";
+import { Layout } from "@/component/layout";
+import { Home } from "@/component/page";
+import { NextPageWithLayout } from "@/type/next-type";
 
 const ProfilePage: NextPageWithLayout = () => {
-  return <Profile />;
+  return <Home />;
 };
 
-ProfilePage.getLayout = MainLayout;
+ProfilePage.getLayout = Layout;
 
 export default ProfilePage;
