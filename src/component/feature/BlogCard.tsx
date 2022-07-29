@@ -1,6 +1,6 @@
 import { Paper, Title, Button, Text } from "@mantine/core";
 import { FC } from "react";
-import { Blog } from "@/types/blog";
+import { Blog } from "@/type/blog";
 
 type Props = {
   blog: Blog;

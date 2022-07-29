@@ -1,9 +1,9 @@
 import { GetStaticPaths, GetStaticProps } from "next";
-import { client } from "@/libs/microCMS/client";
-import { Home } from "@/components/page";
-import { Blogs } from "@/types/blog";
-import { NextPageWithLayout } from "@/types/next-type";
-import { MainLayout } from "@/components/layout";
+import { client } from "@/lib/microCMS/client";
+import { Layout } from "@/component/layout";
+import { Blogs } from "@/type/blog";
+import { NextPageWithLayout } from "@/type/next-type";
+import { BlogList } from "@/component/page/BlogList";
 
 export type Props = {
   blogs: Blogs;
@@ -46,9 +46,9 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 const HomePage: NextPageWithLayout<Props> = ({ blogs }) => {
-  return <Home blogs={blogs} />;
+  return <BlogList blogs={blogs} />;
 };
 
-HomePage.getLayout = MainLayout;
+HomePage.getLayout = Layout;
 
 export default HomePage;
