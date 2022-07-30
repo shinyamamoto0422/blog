@@ -1,9 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
+import { useMantineColorScheme } from "@mantine/core";
 import { FC, useEffect, useState } from "react";
 import { AppLoading } from "../ui/AppLoading";
 
 export const Home: FC = () => {
   const [loading, setLoading] = useState(true);
+  const { colorScheme } = useMantineColorScheme();
+  const dark = colorScheme === "dark";
 
   useEffect(() => {
     setLoading(false);
@@ -12,11 +15,11 @@ export const Home: FC = () => {
   if (loading) return <AppLoading />;
 
   return (
-    <div className="flex flex-wrap px-8 mx-auto max-w-none lg:max-w-12%">
-      <div className="p-10 border">
+    <div className="flex flex-wrap px-2 mx-auto max-w-none sm:px-8 lg:max-w-12%">
+      <div className="p-5 border sm:p-10">
         <div className="flex flex-col">
-          <h1 className="mr-2 mb-3">My name is Yuto Yoshino</h1>
-          <div className="flex gap-3 mb-3">
+          <h1 className="mr-2 mb-3 text-xl font-bold sm:text-3xl">My name is Yuto Yoshino</h1>
+          <div className="flex gap-1 mb-3 sm:gap-3">
             <a href="https://www.twitter.com/codeyy_dev" target="_blank" rel="noreferrer">
               <img
                 src="https://img.shields.io/twitter/follow/codeyy_dev?logo=twitter&style=for-the-badge&color=0891b2&labelColor=1c1917"
@@ -32,8 +35,8 @@ export const Home: FC = () => {
           </div>
         </div>
         <div className="mb-2">
-          <p className="mb-2 text-xl font-bold">簡単すぎる自己紹介</p>
-          <p className="my-2">
+          <p className="mb-2 text-base font-bold sm:text-xl">簡単すぎる自己紹介</p>
+          <p className="my-2 text-xs sm:text-base">
             - 高卒20歳 フロントエンドエンジニア
             <br />
             - React・Next.js・TypeScript
@@ -50,7 +53,7 @@ export const Home: FC = () => {
             <br />- 関西学院大学プログラミング研究会『TechUni』 所属
           </p>
         </div>
-        <h3 className="my-2 text-xl font-bold">Skills</h3>
+        <h3 className="my-2 text-base font-bold sm:text-xl">Skills</h3>
         <h4 className="mb-3 text-sm font-bold">- Frontend</h4>
         <div className="flex gap-2">
           <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTML5" target="_blank" rel="noreferrer">
@@ -142,6 +145,7 @@ export const Home: FC = () => {
               width="36"
               height="36"
               alt="Express"
+              className={`${dark ? "bg-transparent" : "bg-gray-500"}`}
             />
           </a>
           <a href="https://www.mysql.com/" target="_blank" rel="noreferrer">
@@ -180,6 +184,7 @@ export const Home: FC = () => {
               alt="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/socials/github-dark.svg"
               width="32"
               height="32"
+              className={`${dark ? "bg-transparent" : "bg-gray-500 rounded-md"}`}
             />
           </a>
           <a href="https://www.twitter.com/codeyy_dev" target="_blank" rel="noreferrer">
@@ -207,8 +212,7 @@ export const Home: FC = () => {
             />
           </a>
         </div>
-        <h3 className="mt-5 mb-3 text-xl font-bold">Badges</h3>
-        <b className="mb-3">My GitHub Stats</b>
+        <h3 className="mt-5 mb-3 text-base font-bold sm:text-xl">Badges</h3>
         <div className="flex">
           <div>
             <a href="https://github.com/code-yy">
