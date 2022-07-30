@@ -45,10 +45,10 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const HomePage: NextPageWithLayout<Props> = ({ blogs }) => {
+const BlogListPage: NextPageWithLayout<Props> = ({ blogs }) => {
   return <BlogList blogs={blogs} />;
 };
 
-HomePage.getLayout = Layout;
+BlogListPage.getLayout = Layout;
 
-export default HomePage;
+export default BlogListPage;
