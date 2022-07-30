@@ -22,7 +22,7 @@ export const Header: FC = () => {
   const dark = colorScheme === "dark";
 
   return (
-    <MantineHeader height={56} mb={32}>
+    <MantineHeader height={56} className="mb-4 md:mb-8">
       <Container className="flex justify-between items-center h-[56px]">
         <Menu className="block sm:hidden">
           {NavList.map((item) => (
