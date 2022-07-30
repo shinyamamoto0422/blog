@@ -10,6 +10,9 @@ module.exports = {
         "gray-light": "#E9ECEF",
         "gray-dark": "#2C2E33",
       },
+      maxWidth: {
+        "12%": "56%",
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],

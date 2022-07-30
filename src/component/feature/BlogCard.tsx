@@ -1,6 +1,7 @@
 import { Paper, Title, Button, Text } from "@mantine/core";
 import { FC } from "react";
 import { Blog } from "@/type/blog";
+import { AppLink } from "../ui/AppLink";
 
 type Props = {
   blog: Blog;
@@ -23,9 +24,11 @@ export const BlogCard: FC<Props> = ({ blog }) => {
           {blog.title}
         </Title>
       </div>
-      <Button variant="white" color="dark" className="text-white bg-gray-500">
-        Read article
-      </Button>
+      <AppLink href={`/blogs/${blog.slug}`}>
+        <Button variant="white" color="dark" className="text-white bg-gray-500">
+          Read article
+        </Button>
+      </AppLink>
     </Paper>
   );
 };

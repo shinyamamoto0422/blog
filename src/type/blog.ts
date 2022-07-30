@@ -1,14 +1,13 @@
-import { ReactNode } from "react";
-
 export type Blog = {
   id: string;
+  slug: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;
   revisedAt: string;
   title: string;
   description: string;
-  content: ReactNode;
+  content: string;
   eyecatch: {
     url: string;
     height: number;
