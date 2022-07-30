@@ -19,7 +19,7 @@ export const BlogList: FC<Props> = ({ blogs }) => {
 
   return (
     <>
-      <div className="flex flex-wrap gap-10 justify-center px-3 mx-auto max-w-none min-h-[73vh] sm:px-8 lg:gap-12 xl:max-w-12%">
+      <div className="flex flex-wrap gap-10 justify-center px-3 mx-auto max-w-none min-h-[73vh] sm:justify-start sm:px-8 lg:gap-12 xl:max-w-12%">
         {contents.map((blog) => {
           return (
             <div key={blog.id}>
