@@ -30,7 +30,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const data = await client.get({
     endpoint: "blogs",
-    queries: { offset: (Number(id) - 1) * 8, limit: 8 },
+    queries: { offset: (Number(id) - 1) * 6, limit: 6 },
   });
 
   return {
