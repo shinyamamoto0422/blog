@@ -5,8 +5,6 @@
 - TypeScript
 - Mantine
 - TailwindCSS
-- useSWR
-- Axios
 
 ### ブログ用
 
