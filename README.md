@@ -1,11 +1,12 @@
-### 技術スタック
+# code-yy-blog
+
+## 技術スタック
 
 - React
 - Next.js
 - TypeScript
 - Mantine
 - TailwindCSS
-
-### ブログ用
-
-- microCMS
+- pnpm
+- ESlint
+- Prettier
