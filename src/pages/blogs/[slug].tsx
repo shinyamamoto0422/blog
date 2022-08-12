@@ -33,8 +33,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 const BlogIdPage: NextPageWithLayout<Props> = ({ blog }) => {
-  console.log(blog);
-
   return <BlogId blog={blog} />;
 };
 
