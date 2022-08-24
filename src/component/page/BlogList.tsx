@@ -19,7 +19,7 @@ export const BlogList: FC<Props> = ({ blogs }) => {
 
   return (
     <>
-      <div className="flex flex-wrap gap-10 justify-center px-3 mx-auto max-w-none min-h-[73vh] sm:justify-start sm:px-8 lg:gap-12 xl:max-w-12%">
+      <div className="mx-auto flex min-h-[73vh] max-w-none flex-wrap justify-center gap-10 px-3 sm:justify-start sm:px-8 lg:gap-12 xl:max-w-12%">
         {contents.map((blog) => {
           return (
             <div key={blog.id}>
@@ -28,7 +28,7 @@ export const BlogList: FC<Props> = ({ blogs }) => {
           );
         })}
       </div>
-      <div className="flex justify-center my-7">
+      <div className="my-7 flex justify-center">
         <Pagination
           total={totalPages}
           page={Number(router.query.id) || page}

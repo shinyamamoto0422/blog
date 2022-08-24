@@ -8,7 +8,7 @@ export const BlogId: FC<Props> = ({ blog }) => {
     hljs.initHighlightingOnLoad();
   }, []);
   return (
-    <article className="px-8 mx-auto max-w-none prose md:prose-base lg:max-w-12% lg:prose">
+    <article className="prose mx-auto max-w-none px-8 md:prose-base lg:prose lg:max-w-12%">
       <div dangerouslySetInnerHTML={{ __html: blog.content }} />
     </article>
   );

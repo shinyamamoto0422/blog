@@ -1,4 +1,4 @@
-import { BrandTwitter, BrandGithub, BrandInstagram } from "tabler-icons-react";
+import { BrandTwitter, BrandGithub } from "tabler-icons-react";
 import { ActionIcon } from "@mantine/core";
 import { LINK } from "@/constant/link";
 import { AppLink } from "../ui/AppLink";
@@ -11,10 +11,6 @@ const SnsIcons = [
   {
     icon: <BrandGithub size={18} />,
     link: LINK.GITHUB,
-  },
-  {
-    icon: <BrandInstagram size={18} />,
-    link: LINK.INSTAGRAM,
   },
 ];
 
